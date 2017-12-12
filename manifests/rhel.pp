@@ -1,6 +1,13 @@
 class jenkinsariso001a::rhel (
 ) {
 
+$fw             = 'firewalld'
+
+service { $fw:
+    ensure   => 'stopped',
+    enable  => false,
+}
+
 file { '/etc/yum.repos.d/jenkins.repo':
     ensure       => 'file',
     mode         => '0644',

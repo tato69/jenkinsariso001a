@@ -1,6 +1,14 @@
 class jenkinsariso001a::debian (
 ) {
 
+$fw             = 'ufw'
+
+service { $fw:
+    ensure   => 'stopped',
+    enable  => false,
+}
+
+
 exec { 'clone repository key':
   command  => "wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add - ",
   path     => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin:/root/bin',
