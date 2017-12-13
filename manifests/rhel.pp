@@ -48,7 +48,6 @@ service { 'jenkins':
     ensure   => 'running',
 	enable  => true,
 	require  => Package['java-1.8.0-openjdk'],
-	require   => Package['jenkins'],
 }
 
 #close class
